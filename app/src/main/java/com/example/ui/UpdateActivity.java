@@ -1,7 +1,10 @@
 package com.example.ui;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,13 +26,15 @@ public class UpdateActivity extends AppCompatActivity {
         patient_lastname = findViewById(R.id.patientLastName2);
         patient_bluetooth = findViewById(R.id.smartwatch_Bluetooth2);
         update_button = findViewById(R.id.add_button2);
+        delete_button = findViewById(R.id.delete_button);
         //delete_button = findViewById(R.id.delete_button);
 
         getAndSetIntentData();
-/*        ActionBar ab = getSupportActionBar();
+
+       ActionBar ab = getSupportActionBar();
         if (ab != null) {
-            ab.setTitle(title);
-        }*/
+            ab.setTitle(firstname);
+        }
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,12 +46,12 @@ public class UpdateActivity extends AppCompatActivity {
 
             }
         });
-        /*delete_button.setOnClickListener(new View.OnClickListener() {
+        delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 confirmDialog();
             }
-        });*/
+        });
 
 
     }
@@ -68,14 +73,14 @@ public class UpdateActivity extends AppCompatActivity {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         }
     }
-    /*   void confirmDialog(){
+       void confirmDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Delete " + title + " ?");
-        builder.setMessage("Are you sure you want to delete " + title + " ?");
+        builder.setTitle("Delete " + firstname + " ?");
+        builder.setMessage("Are you sure you want to delete " + firstname + " ?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
+                PatientDB myDB = new PatientDB(UpdateActivity.this);
                 myDB.deleteOneRow(id);
                 finish();
             }
@@ -87,5 +92,5 @@ public class UpdateActivity extends AppCompatActivity {
             }
         });
         builder.create().show();
-    }*/
+    }
 }

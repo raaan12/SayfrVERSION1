@@ -87,9 +87,8 @@ public class PatientDB extends SQLiteOpenHelper {
 
         }
     }
-    /*
-    *
-    void deleteOneRow(String row_id){
+
+    public void deleteOneRow(String row_id){
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
         if(result == -1){
@@ -102,6 +101,6 @@ public class PatientDB extends SQLiteOpenHelper {
     void deleteAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_NAME);
-    }*/
+    }
 
 }

@@ -1,5 +1,6 @@
 package com.example.ui;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,19 +50,19 @@ public class PatientsActivity extends AppCompatActivity {
         storeDataInArrays();
 
 
-        customAdapter = new CustomAdapter(PatientsActivity.this, patient_id, patient_firstName, patient_lastName, patient_bluetooth );
+        customAdapter = new CustomAdapter(PatientsActivity.this,this,  patient_id, patient_firstName, patient_lastName, patient_bluetooth );
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(PatientsActivity.this));
 
 
     }
-/*    @Override
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 1){
             recreate();
         }
-    }*/
+    }
     void storeDataInArrays() {
         Cursor cursor = db.readAllData();
         if (cursor.getCount() == 0) {

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.Entity.PatientDB;
@@ -19,8 +20,10 @@ public class PatientsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     FloatingActionButton add_button;
     PatientDB db;
-    ArrayList<String> patient_id, patient_firstName, patient_lastName, patient_bluetooth;
+    TextView no_data;
 
+    ArrayList<String> patient_id, patient_firstName, patient_lastName, patient_bluetooth;
+    CustomAdapter customAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,13 +47,19 @@ public class PatientsActivity extends AppCompatActivity {
         storeDataInArrays();
 
 
-        CustomAdapter customAdapter = new CustomAdapter(PatientsActivity.this, patient_id, patient_firstName, patient_lastName, patient_bluetooth );
+        customAdapter = new CustomAdapter(PatientsActivity.this, patient_id, patient_firstName, patient_lastName, patient_bluetooth );
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(PatientsActivity.this));
 
 
     }
-
+/*    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            recreate();
+        }
+    }*/
     void storeDataInArrays() {
         Cursor cursor = db.readAllData();
         if (cursor.getCount() == 0) {
@@ -65,4 +74,43 @@ public class PatientsActivity extends AppCompatActivity {
             }
         }
     }
+    /*
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.my_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.delete_all){
+            confirmDialog();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    void confirmDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete All?");
+        builder.setMessage("Are you sure you want to delete all Data?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                MyDatabaseHelper myDB = new MyDatabaseHelper(MainActivity.this);
+                myDB.deleteAllData();
+                //Refresh Activity
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+    }*/
 }

@@ -12,7 +12,7 @@ import com.example.Entity.PatientDB;
 
 public class UpdateActivity extends AppCompatActivity {
     EditText patient_firstname, patient_lastname, patient_bluetooth;
-    Button update_button;
+    Button update_button, delete_button;
     String id, firstname, lastname, bluetooth;
 
     @Override
@@ -23,18 +23,30 @@ public class UpdateActivity extends AppCompatActivity {
         patient_lastname = findViewById(R.id.patientLastName2);
         patient_bluetooth = findViewById(R.id.smartwatch_Bluetooth2);
         update_button = findViewById(R.id.add_button2);
+        //delete_button = findViewById(R.id.delete_button);
 
         getAndSetIntentData();
-
+/*        ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setTitle(title);
+        }*/
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PatientDB db = new PatientDB(UpdateActivity.this);
+                firstname =patient_firstname.getText().toString().trim();
+                lastname = patient_lastname.getText().toString().trim();
+                bluetooth = patient_bluetooth.getText().toString().trim();
                 db.updatePatient(id, firstname, lastname, bluetooth);
 
             }
         });
-        getAndSetIntentData();
+        /*delete_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                confirmDialog();
+            }
+        });*/
 
 
     }
@@ -52,10 +64,28 @@ public class UpdateActivity extends AppCompatActivity {
             patient_firstname.setText(firstname);
             patient_lastname.setText(lastname);
             patient_bluetooth.setText(bluetooth);
-
-
         } else {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         }
     }
+    /*   void confirmDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete " + title + " ?");
+        builder.setMessage("Are you sure you want to delete " + title + " ?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
+                myDB.deleteOneRow(id);
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+    }*/
 }

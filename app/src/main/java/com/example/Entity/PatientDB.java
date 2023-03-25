@@ -47,6 +47,7 @@ public class PatientDB extends SQLiteOpenHelper {
     public void addPatient(String fn, String ln, String bl) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
+
         cv.put(COLUMN_FIRSTNAME, fn);
         cv.put(COLUMN_LASTNAME, ln);
         cv.put(COLUMN_BLUETOOTH, bl);
@@ -69,6 +70,7 @@ public class PatientDB extends SQLiteOpenHelper {
         }
         return cursor;
     }
+
     public void updatePatient(String row_id, String fn, String ln, String bl) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -85,5 +87,21 @@ public class PatientDB extends SQLiteOpenHelper {
 
         }
     }
+    /*
+    *
+    void deleteOneRow(String row_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
+        if(result == -1){
+            Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void deleteAllData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_NAME);
+    }*/
 
 }

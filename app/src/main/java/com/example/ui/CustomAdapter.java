@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
     Context context;
+
     ArrayList patient_id, patient_firstname, patient_lastname, patient_bluetooth;
 
     CustomAdapter(Context context, ArrayList patient_id, ArrayList patient_firstname, ArrayList patient_lastname, ArrayList patient_bluetooth) {
@@ -49,7 +50,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 intent.putExtra("firstname", String.valueOf(patient_firstname.get(position)));
                 intent.putExtra("lastname", String.valueOf(patient_lastname.get(position)));
                 intent.putExtra("bluetooth", String.valueOf(patient_bluetooth.get(position)));
-
                 context.startActivity(intent);
             }
         });

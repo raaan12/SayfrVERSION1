@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    tools:context=".AddActivity">
+
+
+    <EditText
+        android:id="@+id/patientFirstName"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="140dp"
+        android:ems="10"
+        android:hint="Patient first name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/patientLastName"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="Patient last name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/add_button"
+        app:layout_constraintEnd_toEndOf="@+id/patientFirstName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/patientFirstName"
+        app:layout_constraintTop_toBottomOf="@+id/patientFirstName"
+        app:layout_constraintVertical_bias="0.275"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/smartwatch_Bluetooth"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Smartwatch's bluetooth"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/patientLastName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/patientLastName"
+        app:layout_constraintTop_toBottomOf="@+id/patientLastName"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="196dp"
+        android:text="add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/smartwatch_Bluetooth"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/smartwatch_Bluetooth" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="114dp"
+        android:layout_height="82dp"
+        app:layout_constraintBottom_toTopOf="@+id/patientFirstName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

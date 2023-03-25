@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:padding="12dp">
+
+
+            <TextView
+                android:id="@+id/patient_id_txt"
+                android:layout_width="32dp"
+                android:layout_height="53dp"
+                android:layout_marginEnd="348dp"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.487" />
+
+            <TextView
+                android:id="@+id/patientFirstName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:text="Rania"
+                android:textColor="#3b608c"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/patient_id_txt"
+                app:layout_constraintTop_toTopOf="@+id/patient_id_txt" />
+
+            <TextView
+                android:id="@+id/patientLastName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chak"
+                android:textColor="#3b608c"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/patientFirstName"
+                app:layout_constraintTop_toBottomOf="@+id/patientFirstName" />
+
+            <TextView
+                android:id="@+id/bluetooth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="smartwatch's bluetooth"
+                android:textColor="@color/fida"
+                app:layout_constraintStart_toStartOf="@+id/patientLastName"
+                app:layout_constraintTop_toBottomOf="@+id/patientLastName" />
+
+            <Button
+                android:id="@+id/patientDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="see more"
+                app:backgroundTint="@color/rania"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.978"
+                app:layout_constraintStart_toEndOf="@+id/patientLastName"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.516" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

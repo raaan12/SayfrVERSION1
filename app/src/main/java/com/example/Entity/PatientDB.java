@@ -47,7 +47,6 @@ public class PatientDB extends SQLiteOpenHelper {
     public void addPatient(String fn, String ln, String bl) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-
         cv.put(COLUMN_FIRSTNAME, fn);
         cv.put(COLUMN_LASTNAME, ln);
         cv.put(COLUMN_BLUETOOTH, bl);
@@ -56,11 +55,9 @@ public class PatientDB extends SQLiteOpenHelper {
             Toast.makeText(context, "failed", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(context, "Added successfully", Toast.LENGTH_LONG).show();
-
+            readAllData();
         }
     }
-
-
     public Cursor readAllData() {
         String query = "select * from " + TABLE_NAME;
         SQLiteDatabase dbs = this.getReadableDatabase();
@@ -70,14 +67,12 @@ public class PatientDB extends SQLiteOpenHelper {
         }
         return cursor;
     }
-
     public void updatePatient(String row_id, String fn, String ln, String bl) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_FIRSTNAME, fn);
         cv.put(COLUMN_LASTNAME, ln);
         cv.put(COLUMN_BLUETOOTH, bl);
-
         long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
         if (result == -1) {
             Toast.makeText(context, "failed", Toast.LENGTH_LONG).show();
@@ -98,7 +93,7 @@ public class PatientDB extends SQLiteOpenHelper {
         }
     }
 
-    void deleteAllData(){
+    public void deleteAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_NAME);
     }

@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +36,7 @@ public class PatientsActivity extends AppCompatActivity {
         setContentView(R.layout.patient_activity);
 
         recyclerView = findViewById(R.id.recycler_view);
+
         add_button = findViewById(R.id.add_button);
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +81,7 @@ public class PatientsActivity extends AppCompatActivity {
             }
         }
     }
-    /*
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -100,10 +104,10 @@ public class PatientsActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                MyDatabaseHelper myDB = new MyDatabaseHelper(MainActivity.this);
+                PatientDB myDB = new PatientDB(PatientsActivity.this);
                 myDB.deleteAllData();
                 //Refresh Activity
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                Intent intent = new Intent(PatientsActivity.this, PatientsActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -115,5 +119,5 @@ public class PatientsActivity extends AppCompatActivity {
             }
         });
         builder.create().show();
-    }*/
+    }
 }

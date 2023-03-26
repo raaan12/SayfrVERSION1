@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Ui"
         tools:targetApi="31">
         <activity
-            android:name=".DetailsActivity"
+            android:name=".PatientDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".UpdateActivity"

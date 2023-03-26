@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -61,6 +62,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 activity.startActivityForResult(intent, 1);
             }
         });
+
+        // Set the onClickListener for the "See More" button
+        holder.seeMoreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Pass the patient ID to the PatientDetailsActivity
+                Intent intent = new Intent(context, PatientDetailsActivity.class);
+                intent.putExtra("id", String.valueOf(patient_id.get(position)));
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -71,6 +84,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView patient_id_txt, patient_firstname_txt, patient_lastname_txt, patient_bluetooth_txt;
         LinearLayout mainLayout;
+        Button seeMoreButton; // ajout de la déclaration du bouton
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,6 +93,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             patient_lastname_txt = itemView.findViewById(R.id.patientLastName);
             patient_bluetooth_txt = itemView.findViewById(R.id.bluetooth);
             mainLayout = itemView.findViewById(R.id.mainLayout);
+            seeMoreButton = itemView.findViewById(R.id.seeMoreButton); // initialisation du bouton
+
             //Animate Recyclerview
             Animation translate_anim = AnimationUtils.loadAnimation(context, R.anim.translate_anim);
             mainLayout.setAnimation(translate_anim);

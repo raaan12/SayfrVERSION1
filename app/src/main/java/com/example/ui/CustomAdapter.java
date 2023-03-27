@@ -68,7 +68,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             @Override
             public void onClick(View v) {
                 // Pass the patient ID to the PatientDetailsActivity
-                Intent intent = new Intent(context, PatientDetailsActivity.class);
+                Intent intent = new Intent(context, patientdetailsActivity.class);
                 intent.putExtra("id", String.valueOf(patient_id.get(position)));
                 context.startActivity(intent);
             }

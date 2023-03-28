@@ -51,7 +51,7 @@ public class PatientsActivity extends AppCompatActivity {
 
             }
         });
-        db = new PatientDB(PatientsActivity.this);
+        db = new PatientDB(PatientsActivity.this, "SAYFR", null, 1);
         patient_id = new ArrayList<>();
         patient_firstName = new ArrayList<>();
         patient_lastName = new ArrayList<>();
@@ -109,7 +109,7 @@ public class PatientsActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                PatientDB myDB = new PatientDB(PatientsActivity.this);
+                PatientDB myDB = new PatientDB(PatientsActivity.this, "SAYFR", null, 1);
                 myDB.deleteAllData();
                 //Refresh Activity
                 Intent intent = new Intent(PatientsActivity.this, PatientsActivity.class);

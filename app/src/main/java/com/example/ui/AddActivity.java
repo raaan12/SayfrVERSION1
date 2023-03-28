@@ -25,7 +25,7 @@ public class AddActivity extends AppCompatActivity {
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PatientDB db = new PatientDB(AddActivity.this);
+                PatientDB db = new PatientDB(AddActivity.this, "SAYFR", null, 1);
                 db.addPatient(firstname.getText().toString().trim(),
                         lastname.getText().toString().trim(),
                         bluetooth.getText().toString().trim());

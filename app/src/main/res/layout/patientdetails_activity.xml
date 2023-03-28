@@ -53,7 +53,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="100dp"
+                    android:layout_width="60dp"
                     android:layout_height="100dp"
                     android:src="@drawable/profilinf"></ImageView>
 
@@ -89,7 +89,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="100dp"
+                    android:layout_width="70dp"
                     android:layout_height="100dp"
                     android:src="@drawable/ppg"></ImageView>
 

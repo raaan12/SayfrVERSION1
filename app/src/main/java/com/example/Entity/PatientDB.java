@@ -22,7 +22,7 @@ public class PatientDB extends SQLiteOpenHelper {
     private static final String COLUMN_BLUETOOTH = "patient_bluetooth";
 
 
-    public PatientDB(@Nullable Context context) {
+    public PatientDB(@Nullable Context context, String sayfr, Object o, int i) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }

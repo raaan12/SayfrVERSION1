@@ -38,7 +38,7 @@ public class UpdateActivity extends AppCompatActivity {
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PatientDB db = new PatientDB(UpdateActivity.this);
+                PatientDB db = new PatientDB(UpdateActivity.this, "SAYFR", null, 1);
                 firstname =patient_firstname.getText().toString().trim();
                 lastname = patient_lastname.getText().toString().trim();
                 bluetooth = patient_bluetooth.getText().toString().trim();
@@ -80,7 +80,7 @@ public class UpdateActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                PatientDB myDB = new PatientDB(UpdateActivity.this);
+                PatientDB myDB = new PatientDB(UpdateActivity.this, "SAYFR", null, 1);
                 myDB.deleteOneRow(id);
                 finish();
             }

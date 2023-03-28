@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.Entity.PatientDB;
 import com.example.Entity.UserDB;
 
 import java.util.regex.Matcher;

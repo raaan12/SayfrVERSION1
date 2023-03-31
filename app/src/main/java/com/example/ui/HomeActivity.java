@@ -4,6 +4,7 @@ import static com.example.ui.R.id.imageView21;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +45,16 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 startActivity(new Intent(HomeActivity.this, PatientsActivity.class));
+            }
+        });
+
+        ImageView pro;
+        pro = findViewById(R.id.profile);
+        pro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, ProfilActivity.class));
+
             }
         });
 
